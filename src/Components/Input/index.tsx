@@ -1,16 +1,32 @@
 import styles from "./styles.module.css";
 
-export default function Input(props) {
+type InputProps = {
+  label: string;
+  valor: string;
+  isAlterado: (valor: string) => void;
+  obrigatorio: boolean;
+  placeholder: string;
+  type: string;
+};
+
+export default function Input({
+  label,
+  valor,
+  isAlterado,
+  obrigatorio,
+  placeholder,
+  type,
+}: InputProps) {
   return (
     <div>
-      <label>{props.label}</label>
+      <label>{label}</label>
       <input
         className={styles.input}
-        onChange={(e) => props.isAlterado(e.target.value)}
-        value={props.valor}
-        required={props.obrigatorio}
-        placeholder={props.placeholder}
-        type={props.type}
+        onChange={(e) => isAlterado(e.target.value)}
+        value={valor}
+        required={obrigatorio}
+        placeholder={placeholder}
+        type={type}
       />
     </div>
   );
