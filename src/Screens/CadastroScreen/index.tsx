@@ -8,7 +8,7 @@ export default function CadastroScreen() {
   const [form, setForm] = useState<FormType>({
     destinatario: "",
     contato: "",
-    tipo: "",
+    planeta: "",
     logradouro: "",
     bairro: "",
     cep: "",

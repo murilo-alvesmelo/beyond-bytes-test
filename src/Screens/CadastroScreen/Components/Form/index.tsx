@@ -1,10 +1,10 @@
 import axios from "axios";
+import styles from "./styles.module.css";
 import ButtonPrimary from "../../../../Components/ButtonPrimary";
 import Input from "../../../../Components/Input";
 import Select from "../../../../Components/Select";
-import styles from "./styles.module.css";
-import estados from "./estados";
 import FormType from "../../../../types";
+import { estados, planetas } from "../../../../utils/constants";
 
 type FormProps = {
   form: FormType;
@@ -25,7 +25,7 @@ export default function Form({ form, setForm, handleSubmit }: FormProps) {
             logradouro,
             bairro,
             cidade: localidade,
-            estado: uf,
+            uf,
           });
         })
         .catch((error) => {
@@ -49,21 +49,20 @@ export default function Form({ form, setForm, handleSubmit }: FormProps) {
           />
           <Input
             label="Contato"
-            type="text"
+            type="tel"
             obrigatorio
             valor={form.contato}
             isAlterado={(valor) => setForm({ ...form, contato: valor })}
           />
           <Select
-            label="Tipo"
-            itens={["Terra", "Marte"]}
+            label="Planeta"
+            itens={planetas.map((p) => p.value)}
             obrigatorio
-            valor={form.tipo}
-            isAlterado={(valor) => setForm({ ...form, tipo: valor })}
+            valor={form.planeta}
+            isAlterado={(valor) => setForm({ ...form, planeta: valor })}
           />
         </div>
-        // se o tipo for Marte, exibir o campo de quantida
-        {form.tipo === "Terra" ? (
+        {form.planeta === "Terra" ? (
           <>
             <div className={styles.row}>
               <Input
@@ -103,8 +102,8 @@ export default function Form({ form, setForm, handleSubmit }: FormProps) {
                 label="Estado"
                 itens={estados.map((e) => e.value)}
                 obrigatorio
-                valor={form.estado}
-                isAlterado={(valor) => setForm({ ...form, estado: valor })}
+                valor={form.uf}
+                isAlterado={(valor) => setForm({ ...form, uf: valor })}
               />
               <Input
                 label="País"
@@ -126,14 +125,17 @@ export default function Form({ form, setForm, handleSubmit }: FormProps) {
             />
             <Input
               label="Lote"
-              type="text"
+              type="number"
+              maxLength={4}
               obrigatorio
               valor={form.lote}
               isAlterado={(valor) => setForm({ ...form, lote: valor })}
             />
           </div>
         )}
-        <ButtonPrimary title="Cadastrar" type="submit" />
+        <div className={styles.divButton}>
+          <ButtonPrimary title="Cadastrar" type="submit" />
+        </div>
       </form>
     </div>
   );
