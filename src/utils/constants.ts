@@ -28,4 +28,9 @@ const estados = [
   { value: "TO", label: "Tocantins" },
 ];
 
-export default estados;
+const planetas = [
+  { value: "Terra", label: "Terra" },
+  { value: "Marte", label: "Marte" },
+];
+
+export { estados, planetas };

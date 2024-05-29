@@ -24,7 +24,7 @@ export default function Select({
   itens,
 }: SelectProps) {
   return (
-    <div>
+    <div className={styles.container}>
       <label className={styles.label}>{label}</label>
       <select
         className={styles.input}
