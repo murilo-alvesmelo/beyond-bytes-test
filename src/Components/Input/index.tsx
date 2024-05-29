@@ -5,7 +5,6 @@ type InputProps = {
   valor: string;
   isAlterado: (valor: string) => void;
   obrigatorio: boolean;
-  placeholder: string;
   type: string;
 };
 
@@ -14,18 +13,16 @@ export default function Input({
   valor,
   isAlterado,
   obrigatorio,
-  placeholder,
   type,
 }: InputProps) {
   return (
     <div>
-      <label>{label}</label>
+      <label className={styles.label}>{label}</label>
       <input
         className={styles.input}
         onChange={(e) => isAlterado(e.target.value)}
         value={valor}
         required={obrigatorio}
-        placeholder={placeholder}
         type={type}
       />
     </div>
