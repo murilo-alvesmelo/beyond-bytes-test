@@ -5,7 +5,8 @@ type InputProps = {
   valor: string;
   isAlterado: (valor: string) => void;
   obrigatorio: boolean;
-  type: string;
+  type: "text" | "email" | "password" | "number" | "tel";
+  maxLength?: number;
 };
 
 export default function Input({
@@ -14,11 +15,13 @@ export default function Input({
   isAlterado,
   obrigatorio,
   type,
+  maxLength,
 }: InputProps) {
   return (
-    <div>
+    <div className={styles.container}>
       <label className={styles.label}>{label}</label>
       <input
+        maxLength={maxLength}
         className={styles.input}
         onChange={(e) => isAlterado(e.target.value)}
         value={valor}
