@@ -7,7 +7,7 @@ import styles from "./styles.module.css";
  * @param {function} isFunction - Função a ser executada ao clicar no botão
  * @param {string} type - planeta do botão
  */
-export default function ButtonPrimary({
+export default function ButtonSecondary({
   title,
   isFunction,
   type,

@@ -1,4 +1,5 @@
 export default interface FormType {
+  id?: number;
   destinatario: string;
   contato: string;
   planeta: string;
@@ -31,4 +32,10 @@ export interface InfoMarteProps {
   planeta: string;
   lote: string;
   fabrica: string;
+}
+
+export interface ButtonProps {
+  title: string;
+  isFunction?: () => void;
+  type?: "button" | "submit" | "reset";
 }

@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 
 const App = () => {
   const location = useLocation();
+  const [enderecos, setEnderecos] = useState([]);
   const [showNavbar, setShowNavbar] = useState(location.pathname !== "/");
 
   useEffect(() => {
@@ -23,8 +24,18 @@ const App = () => {
       {showNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<InitialScreen />} />
-        <Route path="/list" element={<ListScreen />} />
-        <Route path="/cadastro" element={<CadastroScreen />} />
+        <Route
+          path="/list"
+          element={
+            <ListScreen enderecos={enderecos} setEnderecos={setEnderecos} />
+          }
+        />
+        <Route
+          path="/cadastro"
+          element={
+            <CadastroScreen enderecos={enderecos} setEnderecos={setEnderecos} />
+          }
+        />
       </Routes>
     </>
   );
