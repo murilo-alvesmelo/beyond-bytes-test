@@ -45,6 +45,10 @@ export default function CadastroScreen({
       id: crypto.getRandomValues(new Uint32Array(1))[0],
     };
     setEnderecos([...enderecos, newEndereco]);
+    localStorage.setItem(
+      "enderecos",
+      JSON.stringify([...enderecos, newEndereco])
+    );
     showSuccessAlert();
   };
 

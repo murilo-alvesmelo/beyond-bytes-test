@@ -17,6 +17,11 @@ const App = () => {
 
   useEffect(() => {
     setShowNavbar(location.pathname !== "/");
+
+    const storedEnderecos = localStorage.getItem("enderecos");
+    if (storedEnderecos) {
+      setEnderecos(JSON.parse(storedEnderecos));
+    }
   }, [location.pathname]);
 
   return (

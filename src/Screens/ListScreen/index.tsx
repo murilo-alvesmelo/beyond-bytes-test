@@ -57,6 +57,7 @@ export default function ListScreen({
       if (result.isConfirmed) {
         const newEnderecos = enderecos.filter((endereco) => endereco.id !== id);
         setEnderecos(newEnderecos);
+        localStorage.setItem("enderecos", JSON.stringify(newEnderecos));
       }
     });
   };
