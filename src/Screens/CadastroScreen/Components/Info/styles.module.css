@@ -37,3 +37,13 @@
     gap: 10px;
     padding: 10px;
 }
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+    .img {
+        max-height: 50px;
+        max-width: 50px;
+    }
+}

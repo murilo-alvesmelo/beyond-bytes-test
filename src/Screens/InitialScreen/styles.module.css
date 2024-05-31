@@ -24,3 +24,14 @@
     height: 100%;
 
 }
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+    .container {
+        display: flex;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+}
