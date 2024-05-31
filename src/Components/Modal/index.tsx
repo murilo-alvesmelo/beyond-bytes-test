@@ -4,7 +4,7 @@ import FormType from "../../types";
 
 type EditModalProps = {
   isModalOpen: boolean;
-  formEdit: FormType;
+  formEdit: FormType | null;
   setFormEdit: (form: FormType) => void;
   setIsModalOpen: (value: boolean) => void;
   editEndereco: (form: FormType) => void;

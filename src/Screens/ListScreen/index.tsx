@@ -24,7 +24,7 @@ export default function ListScreen({
   const [searchQuery, setSearchQuery] = useState("");
   const [planetaQuery, setPlanetaQuery] = useState("Todos");
   const [openModal, setOpenModal] = useState(false);
-  const [formEdit, setFormEdit] = useState<FormType>();
+  const [formEdit, setFormEdit] = useState<FormType | null>(null);
 
   /**
    * @description Edita um endereço da lista
