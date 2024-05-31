@@ -24,7 +24,21 @@ export default function ListScreen({
   const [searchQuery, setSearchQuery] = useState("");
   const [planetaQuery, setPlanetaQuery] = useState("Todos");
   const [openModal, setOpenModal] = useState(false);
-  const [formEdit, setFormEdit] = useState<FormType | null>(null);
+  const [formEdit, setFormEdit] = useState<FormType>({
+    id: 0,
+    destinatario: "",
+    contato: "",
+    planeta: "",
+    logradouro: "",
+    bairro: "",
+    cep: "",
+    cidade: "",
+    uf: "",
+    pais: "",
+    fabrica: "",
+    lote: "",
+    estado: "",
+  });
 
   /**
    * @description Edita um endereço da lista

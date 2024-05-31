@@ -9,10 +9,11 @@ import ListScreen from "./Screens/ListScreen";
 import CadastroScreen from "./Screens/CadastroScreen";
 import InitialScreen from "./Screens/InitialScreen";
 import { useEffect, useState } from "react";
+import FormType from "./types";
 
 const App = () => {
   const location = useLocation();
-  const [enderecos, setEnderecos] = useState([]);
+  const [enderecos, setEnderecos] = useState<FormType[]>([]);
   const [showNavbar, setShowNavbar] = useState(location.pathname !== "/");
 
   useEffect(() => {

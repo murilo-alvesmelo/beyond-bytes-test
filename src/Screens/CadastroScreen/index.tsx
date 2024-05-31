@@ -20,6 +20,7 @@ export default function CadastroScreen({
   setEnderecos,
 }: CadastroScreenProps) {
   const [form, setForm] = useState<FormType>({
+    id: 0,
     destinatario: "",
     contato: "",
     planeta: "",
@@ -93,6 +94,7 @@ export default function CadastroScreen({
     })
       .then(() => {
         setForm({
+          id: 0,
           destinatario: "",
           contato: "",
           planeta: "",
