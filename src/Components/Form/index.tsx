@@ -1,10 +1,10 @@
 import axios from "axios";
 import styles from "./styles.module.css";
-import ButtonPrimary from "../../../../Components/ButtonPrimary";
-import Input from "../../../../Components/Input";
-import Select from "../../../../Components/Select";
-import FormType from "../../../../types";
-import { estados, paises, planetas } from "../../../../utils/constants";
+import ButtonPrimary from "../ButtonPrimary";
+import Input from "../Input";
+import Select from "../Select";
+import FormType from "../../types";
+import { estados, paises, planetas } from "../../utils/constants";
 
 type FormProps = {
   form: FormType;
