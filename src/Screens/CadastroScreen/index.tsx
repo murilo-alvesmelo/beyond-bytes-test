@@ -20,7 +20,6 @@ export default function CadastroScreen({
   setEnderecos,
 }: CadastroScreenProps) {
   const [form, setForm] = useState<FormType>({
-    id: enderecos.length + 1,
     destinatario: "",
     contato: "",
     planeta: "",
@@ -41,7 +40,10 @@ export default function CadastroScreen({
    */
   const addEndereco = (e: React.FormEvent) => {
     e.preventDefault();
-    const newEndereco = { ...form };
+    const newEndereco = {
+      ...form,
+      id: crypto.getRandomValues(new Uint32Array(1))[0],
+    };
     setEnderecos([...enderecos, newEndereco]);
     showSuccessAlert();
   };
@@ -57,7 +59,6 @@ export default function CadastroScreen({
     })
       .then(() => {
         setForm({
-          id: enderecos.length + 1,
           destinatario: "",
           contato: "",
           planeta: "",

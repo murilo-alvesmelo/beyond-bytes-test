@@ -1,5 +1,5 @@
 export default interface FormType {
-  id: number;
+  id?: number;
   destinatario: string;
   contato: string;
   planeta: string;
