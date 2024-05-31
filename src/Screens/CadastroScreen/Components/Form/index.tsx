@@ -50,6 +50,7 @@ export default function Form({ form, setForm, handleSubmit }: FormProps) {
           <Input
             label="Contato"
             type="tel"
+            mask="(99) 99999-9999"
             obrigatorio
             valor={form.contato}
             isAlterado={(valor) => setForm({ ...form, contato: valor })}
@@ -69,6 +70,7 @@ export default function Form({ form, setForm, handleSubmit }: FormProps) {
                 label="CEP"
                 type="text"
                 obrigatorio
+                mask="99999-999"
                 valor={form.cep}
                 isAlterado={(valor) => {
                   getCep(valor);
@@ -125,8 +127,8 @@ export default function Form({ form, setForm, handleSubmit }: FormProps) {
             />
             <Input
               label="Lote"
-              type="number"
-              maxLength={4}
+              type="text"
+              mask="9999"
               obrigatorio
               valor={form.lote}
               isAlterado={(valor) => setForm({ ...form, lote: valor })}

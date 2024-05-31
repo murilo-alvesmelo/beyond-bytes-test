@@ -35,11 +35,41 @@ export default function CadastroScreen({
   });
 
   /**
+   * @description Validacao do formulário
+   */
+  const validateForm = () => {
+    if (
+      form.destinatario === "" ||
+      form.contato === "" ||
+      form.planeta === "" ||
+      form.logradouro === "" ||
+      form.bairro === "" ||
+      form.cep === "" ||
+      form.cidade === "" ||
+      form.uf === "" ||
+      form.pais === "" ||
+      form.fabrica === "" ||
+      form.lote === "" ||
+      form.estado === ""
+    ) {
+      Swal.fire({
+        title: "Atenção!",
+        text: "Preencha todos os campos para continuar",
+        icon: "warning",
+      });
+      return;
+    }
+  };
+
+  /**
    * @description Adiciona um endereço à lista de endereços
    * @param {React.FormEvent} e - Evento de formulário
    */
   const addEndereco = (e: React.FormEvent) => {
     e.preventDefault();
+
+    validateForm();
+
     const newEndereco = {
       ...form,
       id: crypto.getRandomValues(new Uint32Array(1))[0],
@@ -81,7 +111,6 @@ export default function CadastroScreen({
         console.error(error);
       });
   };
-
   return (
     <div className={styles.container}>
       <InfoCadastro form={form} />
