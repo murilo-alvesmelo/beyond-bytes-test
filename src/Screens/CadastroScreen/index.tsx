@@ -10,11 +10,17 @@ type CadastroScreenProps = {
   setEnderecos: React.Dispatch<React.SetStateAction<FormType[]>>;
 };
 
+/**
+ * @description Tela de cadastro de endereços
+ * @param {FormType[]} enderecos - Lista de endereços cadastrados
+ * @param {React.Dispatch<React.SetStateAction<FormType[]>>} setEnderecos - Função para alterar a lista de endereços
+ */
 export default function CadastroScreen({
   enderecos,
   setEnderecos,
 }: CadastroScreenProps) {
   const [form, setForm] = useState<FormType>({
+    id: enderecos.length + 1,
     destinatario: "",
     contato: "",
     planeta: "",
@@ -29,13 +35,20 @@ export default function CadastroScreen({
     estado: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  /**
+   * @description Adiciona um endereço à lista de endereços
+   * @param {React.FormEvent} e - Evento de formulário
+   */
+  const addEndereco = (e: React.FormEvent) => {
     e.preventDefault();
-    const newEndereco = { id: enderecos.length + 1, ...form };
+    const newEndereco = { ...form };
     setEnderecos([...enderecos, newEndereco]);
     showSuccessAlert();
   };
 
+  /**
+   * @description Exibe um alerta de sucesso ao cadastrar um endereço
+   */
   const showSuccessAlert = () => {
     Swal.fire({
       title: "Endereço cadastrado!",
@@ -44,6 +57,7 @@ export default function CadastroScreen({
     })
       .then(() => {
         setForm({
+          id: enderecos.length + 1,
           destinatario: "",
           contato: "",
           planeta: "",
@@ -66,7 +80,7 @@ export default function CadastroScreen({
   return (
     <div className={styles.container}>
       <InfoCadastro form={form} />
-      <Form form={form} setForm={setForm} handleSubmit={handleSubmit} />
+      <Form form={form} setForm={setForm} handleSubmit={addEndereco} />
     </div>
   );
 }
