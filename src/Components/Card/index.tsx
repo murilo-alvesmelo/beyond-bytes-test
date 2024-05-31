@@ -4,6 +4,23 @@ import terra from "../../assets/terra.png";
 import marte from "../../assets/marte.png";
 import FormType from "../../types";
 
+type CardProps = {
+  planeta: string;
+  destinatario: string;
+  contato: string;
+  logradouro: string;
+  bairro: string;
+  cidade: string;
+  uf: string;
+  fabrica: string;
+  lote: string;
+  form: FormType;
+  openModal: boolean;
+  setOpenModal: (value: boolean) => void;
+  deleteEndereco: () => void;
+  setFormEdit: (form: FormType) => void;
+};
+
 export default function Card({
   planeta,
   destinatario,
@@ -14,7 +31,11 @@ export default function Card({
   uf,
   fabrica,
   lote,
-}: FormType) {
+  form,
+  setOpenModal,
+  deleteEndereco,
+  setFormEdit,
+}: CardProps) {
   return (
     <div className={styles.container}>
       <img
@@ -41,8 +62,14 @@ export default function Card({
           </div>
         )}
         <div className={styles.divButton}>
-          <ButtonSecondary title="Editar" />
-          <ButtonSecondary title="Excluir" />
+          <ButtonSecondary
+            title="Editar"
+            isFunction={() => {
+              setOpenModal(true);
+              setFormEdit(form);
+            }}
+          />
+          <ButtonSecondary title="Excluir" isFunction={deleteEndereco} />
         </div>
       </div>
     </div>
