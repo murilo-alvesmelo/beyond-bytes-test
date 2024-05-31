@@ -4,7 +4,7 @@ import ButtonPrimary from "../../../../Components/ButtonPrimary";
 import Input from "../../../../Components/Input";
 import Select from "../../../../Components/Select";
 import FormType from "../../../../types";
-import { estados, planetas } from "../../../../utils/constants";
+import { estados, paises, planetas } from "../../../../utils/constants";
 
 type FormProps = {
   form: FormType;
@@ -105,9 +105,9 @@ export default function Form({ form, setForm, handleSubmit }: FormProps) {
                 valor={form.uf}
                 isAlterado={(valor) => setForm({ ...form, uf: valor })}
               />
-              <Input
+              <Select
                 label="País"
-                type="text"
+                itens={paises.map((p) => p.value)}
                 obrigatorio
                 valor={form.pais}
                 isAlterado={(valor) => setForm({ ...form, pais: valor })}
