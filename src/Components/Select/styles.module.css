@@ -1,7 +1,7 @@
-
 .container {
     margin-top: 14px;
 }
+
 .input {
     color: #000000;
     background-color: #F7F9FB;
@@ -10,7 +10,7 @@
     width: 100%;
     mix-blend-mode: normal;
     font-size: 16px;
-    padding: 12px; 
+    padding: 10px; 
     border: none;
     box-sizing: border-box;
     border-radius: 8px;

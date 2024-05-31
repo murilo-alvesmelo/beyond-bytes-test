@@ -1,4 +1,40 @@
 .container {
+    margin: 10px;
+}
+.subContainer {
     display: flex;
-    background-color: red;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.inputs{
+    display: flex; 
+    gap: 10px;
+}
+.title {
+    color: #000000;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.listContainer {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.span {
+    color: #000000;
+    margin-bottom: 4px;
+}
+
+.img {
+    width: 40%;
+    height: 40%;
+}
+.imgContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 14px;
 }
