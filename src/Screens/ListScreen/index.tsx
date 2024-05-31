@@ -55,6 +55,17 @@ export default function ListScreen({
           return e;
         })
       );
+      localStorage.setItem(
+        "enderecos",
+        JSON.stringify(
+          enderecos.map((e) => {
+            if (e.id === endereco.id) {
+              return form;
+            }
+            return e;
+          })
+        )
+      );
     }
   };
 

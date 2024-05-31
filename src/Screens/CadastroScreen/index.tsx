@@ -1,5 +1,5 @@
 import styles from "./styles.module.css";
-import Form from "./Components/Form";
+import Form from "../../Components/Form";
 import InfoCadastro from "./Components/Info";
 import { useState } from "react";
 import FormType from "../../types";
@@ -36,40 +36,23 @@ export default function CadastroScreen({
   });
 
   /**
-   * @description Validacao do formulário
-   */
-  const validateForm = () => {
-    if (
-      form.destinatario === "" ||
-      form.contato === "" ||
-      form.planeta === "" ||
-      form.logradouro === "" ||
-      form.bairro === "" ||
-      form.cep === "" ||
-      form.cidade === "" ||
-      form.uf === "" ||
-      form.pais === "" ||
-      form.fabrica === "" ||
-      form.lote === "" ||
-      form.estado === ""
-    ) {
-      Swal.fire({
-        title: "Atenção!",
-        text: "Preencha todos os campos para continuar",
-        icon: "warning",
-      });
-      return;
-    }
-  };
-
-  /**
    * @description Adiciona um endereço à lista de endereços
    * @param {React.FormEvent} e - Evento de formulário
    */
   const addEndereco = (e: React.FormEvent) => {
     e.preventDefault();
 
-    validateForm();
+    if (
+      form.planeta === "Marte" &&
+      form.lote.replace(/[^0-9a-z]/gi, "").length !== 4
+    ) {
+      Swal.fire({
+        title: "Atenção!",
+        text: "O lote de Marte deve ter 4 caracteres",
+        icon: "warning",
+      });
+      return;
+    }
 
     const newEndereco = {
       ...form,
